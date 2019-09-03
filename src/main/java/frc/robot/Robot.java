@@ -58,9 +58,10 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    //starts the dual cameras
     CameraServer.getInstance().startAutomaticCapture(0);
     CameraServer.getInstance().startAutomaticCapture(1);
-    //auto start 
+    //auto start (disabled atm)
     //pressBoy.setClosedLoopControl(true);
     pressBoy.setClosedLoopControl(false);
     
@@ -70,6 +71,9 @@ public class Robot extends TimedRobot {
   
   @Override
   public void robotPeriodic() {
+
+    //this code will always run when the robot is enabled in any setting
+
     enabledCompr = pressBoy.enabled();
     //pressureSwitch = pressBoy.getPressureSwitchValue();
     currentCompr = pressBoy.getCompressorCurrent();
@@ -121,7 +125,7 @@ public class Robot extends TimedRobot {
       //all stop
     }
 
-    //input code
+    //input code (of arm???)
 
     if (m_stick.getRawButton(2)){
       input1.set(0.7);
@@ -152,7 +156,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("Pneu Loop Enabled", pneuLoop);
 
 
-    //first cylinder code
+    //first cylinder code (currently launching norton)
     if (m_stick.getRawButtonPressed(6)){
       basicDSol.set(DoubleSolenoid.Value.kForward);
     }
@@ -176,6 +180,8 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
     //manual flipper mvmt
 
+    //all below code is no longer used. 
+    /*
     if(m_stick.getRawButton(upButton)){
       flipper.set(0.8);
     }
@@ -186,7 +192,7 @@ public class Robot extends TimedRobot {
       flipper.set(0);
     }
 
-
+    */
 
   }
 }
