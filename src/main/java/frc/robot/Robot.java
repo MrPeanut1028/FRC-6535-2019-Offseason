@@ -158,17 +158,17 @@ public class Robot extends TimedRobot {
 
 
     //Rear Dual Legs Up and Down
-    if (m_stick.getRawButtonPressed(6)){
-      rearPistons.set(DoubleSolenoid.Value.kForward);
-    }
     
-    if(m_stick.getRawButtonPressed(4)){
-      frontPiston.set(DoubleSolenoid.Value.kForward);
-    }
     
-    if(m_stick.getRawButtonPressed(11)){
+    if(m_stick.getRawButtonPressed(12)){
       rearPistons.set(DoubleSolenoid.Value.kReverse);
       frontPiston.set(DoubleSolenoid.Value.kReverse);
+    }
+    else if (m_stick.getRawButtonPressed(10)){
+      rearPistons.set(DoubleSolenoid.Value.kForward);
+    }
+    else if(m_stick.getRawButtonPressed(9)){
+      frontPiston.set(DoubleSolenoid.Value.kForward);
     }
 
   }
