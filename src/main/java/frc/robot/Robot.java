@@ -39,9 +39,9 @@ public class Robot extends TimedRobot {
   private final Spark rota1 = new Spark(2);
   private final Spark rota2 = new Spark (3);
   private final Spark input1 = new Spark (4);
-  private final Spark flipper = new Spark (5);
-  private static int upButton = 4;
-  private static int downButton = 6;
+  //private final Spark flipper = new Spark (5);
+  //private static int upButton = 4;
+  //private static int downButton = 6;
   Compressor pressBoy = new Compressor(0);
   //Solenoid exampleSolenoid = new Solenoid(1);
   DoubleSolenoid basicDSol = new DoubleSolenoid(1, 0);
@@ -175,7 +175,7 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
     //manual flipper mvmt
-
+    /*
     if(m_stick.getRawButton(upButton)){
       flipper.set(0.8);
     }
@@ -185,7 +185,7 @@ public class Robot extends TimedRobot {
     else {
       flipper.set(0);
     }
-
+    */
 
 
   }
