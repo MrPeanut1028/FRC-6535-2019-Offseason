@@ -44,7 +44,8 @@ public class Robot extends TimedRobot {
   //private static int downButton = 6;
   Compressor pressBoy = new Compressor(0);
   //Solenoid exampleSolenoid = new Solenoid(1);
-  DoubleSolenoid basicDSol = new DoubleSolenoid(1, 0);
+  DoubleSolenoid rearPistons = new DoubleSolenoid(1, 0);
+  DoubleSolenoid frontPiston = new DoubleSolenoid(3, 2);
   boolean enabledCompr = pressBoy.enabled();
   //boolean pressureSwitch = pressBoy.getPressureSwitchValue();
   double currentCompr = pressBoy.getCompressorCurrent();
@@ -156,21 +157,23 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("Pneu Loop Enabled", pneuLoop);
 
 
-    //first cylinder code (currently launching norton)
+    //Rear Dual Legs Up and Down
     if (m_stick.getRawButtonPressed(6)){
-      basicDSol.set(DoubleSolenoid.Value.kForward);
-    }
-    else if(m_stick.getRawButtonPressed(4)){
-      basicDSol.set(DoubleSolenoid.Value.kReverse);
-    }
-    else if(m_stick.getRawButtonPressed(11)){
-      basicDSol.set(DoubleSolenoid.Value.kOff);
+      rearPistons.set(DoubleSolenoid.Value.kForward);
     }
     
+    if(m_stick.getRawButtonPressed(4)){
+      frontPiston.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    if(m_stick.getRawButtonPressed(11)){
+      rearPistons.set(DoubleSolenoid.Value.kReverse);
+      frontPiston.set(DoubleSolenoid.Value.kReverse);
+    }
 
   }
 
-
+ 
   
 
   /**
