@@ -179,11 +179,6 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
     //manual flipper mvmt
-<<<<<<< HEAD
-=======
-
-    //all below code is no longer used. 
->>>>>>> 4625506f873979217429f90dc0b6bd7de62e22a9
     /*
     if(m_stick.getRawButton(upButton)){
       flipper.set(0.8);
@@ -194,13 +189,8 @@ public class Robot extends TimedRobot {
     else {
       flipper.set(0);
     }
-<<<<<<< HEAD
     */
 
-=======
-
-    */
->>>>>>> 4625506f873979217429f90dc0b6bd7de62e22a9
 
   }
 }
