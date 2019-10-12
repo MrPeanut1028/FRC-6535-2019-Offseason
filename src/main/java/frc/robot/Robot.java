@@ -95,7 +95,39 @@ public class Robot extends TimedRobot {
   
   @Override
   public void autonomousPeriodic() {
-    
+     //drive code
+     m_robotDrive.arcadeDrive(m_stick.getY() * -1, m_stick.getX());
+     //arm rotation mvmt
+     if (m_stick.getRawButton(3)){
+       rota1.set(0.4);
+       rota2.set(0.4);
+       //up
+     }
+     else if(m_stick.getRawButton(5)){
+       rota1.set(-0.4);
+       rota2.set(-0.4);
+       //down
+     }
+     else{
+       rota1.set(0);
+       rota2.set(0);
+       //all stop
+     }
+ 
+     //input code (of arm???)
+ 
+     if (m_stick.getRawButton(2)){
+       input1.set(0.7);
+       //forward
+     }
+     else if(m_stick.getRawButton(1)){
+       input1.set(-0.7);
+       //reverse
+     }
+     else{
+       input1.set(0);
+       //all stop
+     }
   }
   @Override
   public void teleopInit() {
